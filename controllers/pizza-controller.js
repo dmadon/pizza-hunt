@@ -48,7 +48,7 @@ const pizzaController = {
 
     // update pizza by id
     updatePizza({params,body},res){
-        Pizza.findOneAndUpdate({_id:params.id},body,{new:true})
+        Pizza.findOneAndUpdate({_id:params.id},body,{new:true, runValidators:true})
         // note the findOneAndUpdate method finds the document we want to update, updates it, then returns the new document.
         // if we don't set that third parameter to new:true, it will return the original document.
         // by setting the parameter to true, we are instructing Mongoose to return the new version of the document.
